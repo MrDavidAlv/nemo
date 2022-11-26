@@ -1,16 +1,45 @@
 
 body { 
+    text-align: center;
   font-family: MonteCarlo;
-  height: 500px;
+  /* height: 500px; */
   background-image: url("https://wallpaperaccess.com/full/1622452.jpg");
-  background-repeat:no-repeat;
-  background-position-x:center;
-  background-position-y:center;
 
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: center center;
+
+  /* background-repeat:no-repeat;
+  background-position-x:center;
+  background-position-y:center; */
+
+
+  margin: 0px;
+  padding: 0px;
+ 
+}
+
+.container{
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 2%;
+    padding-bottom: 7%;
+    min-height: 100%;
 }
 
 .jumbotron{
+    opacity: 0.8;
+    text-align: center; 
+}
+
+.jumbotron2{
+    background-color: #eee;
+    border-radius: 5px;
     text-align: center;
+    opacity: 0.8;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 2%;
 }
 
 .row {
@@ -23,8 +52,44 @@ body {
 
 iframe {
     border-radius: 200px;
+    opacity: 1 !important;
 }
 
 button {
-    width: 200px;
+    width: 150px;
+    opacity: 1 !important;
+}
+.logo {
+    background-color: gray;
+    width: 45%;
+}
+
+footer{
+    text-align: center;
+    min-height: 10%;
+    background-color: #eee;
+    margin-bottom: 0px;
+}
+
+@media (min-width: 320px) {
+    .logo {
+        width: 25%;
+    }
+}
+
+@media (min-width: 581px) {
+    .logo {
+        width: 22%;
+    }
+}
+
+@media (min-width: 825px) {
+    .logo {
+        width: 20%;
+    }
+}
+@media (min-width: 1240px) {
+    .logo {
+        width: 18%;
+    }
 }
