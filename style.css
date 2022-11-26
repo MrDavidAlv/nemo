@@ -63,6 +63,11 @@ button {
     background-color: gray;
     width: 45%;
 }
+.linkd {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+}
 
 footer{
     text-align: center;
