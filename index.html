@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>pecera</title>
+  </head>
+
+  <script>
+    let timeout;
+
+    function myFunction() {
+      timeout = setTimeout(alertFunc, 3000);
+    }
+
+    function alertFunc() {
+      //alert("Hello!");
+      window.location.reload();
+    }
+  </script>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Alimentador de peces</h1>
+      </div>
+
+      <div class="jumbotron">
+        <div class="row">
+          <h2>Motor DC</h2>
+        </div>
+        <div class="row">
+          <iframe
+            width="210"
+            height="210"
+            style="border: 1px solid #eee"
+            src="https://thingspeak.com/channels/488557/widgets/558283"
+          ></iframe>
+        </div>
+        <div class="row">
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"><h2>ON</h2></div>
+            <div class="col-sm-3"><h2>OFF</h2></div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+              <button type="button" class="btn btn-success">Encender</button>
+            </div>
+            <div class="col-sm-3">
+              <button type="button" class="btn btn-danger">Apagar</button>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+
+body { 
+  font-family: MonteCarlo;
+  height: 500px;
+  background-image: url("https://wallpaperaccess.com/full/1622452.jpg");
+  background-repeat:no-repeat;
+  background-position-x:center;
+  background-position-y:center;
+
+}
+
+.jumbotron{
+    text-align: center;
+}
+
+.row {
+    text-align: center;
+}
+
+.col-sm-4 {
+    text-align: center;
+}
+
+iframe {
+    border-radius: 200px;
+}
