@@ -24,3 +24,7 @@ body {
 iframe {
     border-radius: 200px;
 }
+
+button {
+    width: 200px;
+}
