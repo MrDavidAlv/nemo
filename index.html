@@ -24,9 +24,10 @@
 
     let estado;
 
-    function encender() { 
+    function encender() {
+      document.getElementById("indicador").style.background = 'white';
+      document.getElementById("status").innerHTML = "Procesando...";
         encendido();
-        setTimeout("consultarEstado();",15000);
     }
 
     function encendido() {
@@ -44,14 +45,15 @@
           })
           .then(function (data) {
             console.log("Encendido: ",data);
-            consultarEstado()
+            setTimeout("consultarEstado();",15500);
           })
           .catch((error) => console.log("error: ",error));
     }
 
     function apagar() {
-        apagado();
-        setTimeout("consultarEstado();",15000);
+      document.getElementById("indicador").style.background = 'white';
+      document.getElementById("status").innerHTML = "Procesando...";
+      apagado();
     }
 
     function apagado() {
@@ -69,10 +71,11 @@
           })
           .then(function (data) {
             console.log("apagado: ",data);
-            consultarEstado()
+            setTimeout("consultarEstado();",15500);
           })
           .catch((error) => console.log("error: ",error));
     }
+
 
     function consultarEstado() {
         fetch(
@@ -89,11 +92,13 @@
           })
           .then(function (data) {
             estado = data.feeds[0].field1
-            elem = document.getElementById("indicador");
+            status = document.getElementById("status");
             if(estado==1){
-              elem.style.background = 'green';
+              document.getElementById("indicador").style.background = 'green';
+              document.getElementById("status").innerHTML = "Encendido";
             }else {
-              elem.style.background = 'red';
+              document.getElementById("indicador").style.background = 'red';
+              document.getElementById("status").innerHTML = "Apagado";
             }
           })
           .catch((error) => console.log("error: ",error));
@@ -110,13 +115,14 @@
 
       <div class="jumbotron2">
         <div class="row">
-          <h2>Motor DC</h2>
+          <h2>Estado Actual</h2>
         </div>
     
         <div class="row">
           <div class="col-sm-12" style="text-align: -webkit-center;">
             <div id="indicador"></div>
             <br>
+            <h3 id="status"></h3>
             <input type="button" class="btn btn-primary" value="Actualizar" onclick="consultarEstado()">
         </div>
           <div class="row">
