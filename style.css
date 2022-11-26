@@ -68,6 +68,14 @@ input {
     font-size: 25px;
 }
 
+#indicador{
+    text-align: center;
+    border: 7px solid gray;
+    border-radius: 125px;
+    width: 150px;
+    height: 150px;
+}
+
 footer{
     text-align: center;
     min-height: 10%;

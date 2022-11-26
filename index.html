@@ -19,9 +19,14 @@
   </head>
 
   <script>
+    
+    window.onload = consultarEstado();
+
+    let estado;
+
     function encender() { 
         encendido();
-        encendido();
+        setTimeout("consultarEstado();",15000);
     }
 
     function encendido() {
@@ -39,13 +44,14 @@
           })
           .then(function (data) {
             console.log("Encendido: ",data);
+            consultarEstado()
           })
           .catch((error) => console.log("error: ",error));
     }
 
     function apagar() {
         apagado();
-        apagado()
+        setTimeout("consultarEstado();",15000);
     }
 
     function apagado() {
@@ -63,11 +69,35 @@
           })
           .then(function (data) {
             console.log("apagado: ",data);
+            consultarEstado()
           })
           .catch((error) => console.log("error: ",error));
     }
 
-
+    function consultarEstado() {
+        fetch(
+          "https://api.thingspeak.com/channels/488557/feeds.json?results=1",
+          {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            estado = data.feeds[0].field1
+            elem = document.getElementById("indicador");
+            if(estado==1){
+              elem.style.background = 'green';
+            }else {
+              elem.style.background = 'red';
+            }
+          })
+          .catch((error) => console.log("error: ",error));
+    }
   </script>
 
   <body>
@@ -82,15 +112,13 @@
         <div class="row">
           <h2>Motor DC</h2>
         </div>
+    
         <div class="row">
-          <iframe
-            width="210"
-            height="210"
-            style="border: 1px solid #eee"
-            src="https://thingspeak.com/channels/488557/widgets/558283"
-          ></iframe>
+          <div class="col-sm-12" style="text-align: -webkit-center;">
+            <div id="indicador"></div>
+            <br>
+            <input type="button" class="btn btn-primary" value="Actualizar" onclick="consultarEstado()">
         </div>
-        <div class="row">
           <div class="row">
             <div class="col-sm-12"><h2>Control</h2></div>
           </div>
