@@ -55,9 +55,8 @@ iframe {
     opacity: 1 !important;
 }
 
-button {
+input {
     width: 150px;
-    opacity: 1 !important;
 }
 .logo {
     background-color: gray;

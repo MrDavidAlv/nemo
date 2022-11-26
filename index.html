@@ -19,7 +19,55 @@
   </head>
 
   <script>
-    
+    function encender() { 
+        encendido();
+        encendido();
+    }
+
+    function encendido() {
+        fetch(
+          "https://api.thingspeak.com/update?api_key=C9DF04G8AYCN6ZDE&field1=1",
+          {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log("Encendido: ",data);
+          })
+          .catch((error) => console.log("error: ",error));
+    }
+
+    function apagar() {
+        apagado();
+        apagado()
+    }
+
+    function apagado() {
+        fetch(
+          "https://api.thingspeak.com/update?api_key=C9DF04G8AYCN6ZDE&field1=0",
+          {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log("apagado: ",data);
+          })
+          .catch((error) => console.log("error: ",error));
+    }
+
+
   </script>
 
   <body>
@@ -49,11 +97,11 @@
           <br>
           <div class="row">
             <div class="col-sm-4">
-              <button type="button" class="btn btn-success">Encender</button>
+                <input type="button" class="btn btn-success" value="Encender" onclick="encender()">
             </div>
             <div class="col-sm-4">&nbsp;</div>
             <div class="col-sm-4">
-              <button type="button" class="btn btn-danger">Apagar</button>
+                <input type="button" class="btn btn-danger" value="Apagar" onclick="apagar()">
             </div>
           </div>
         </div>
